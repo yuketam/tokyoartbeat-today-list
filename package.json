@@ -1,0 +1,42 @@
+{
+  "name": "tokyoartbeat-today-list",
+  "description": "Shows the list events/exhibitions opening today in tokyo",
+  "version": "0.0.1",
+  "author": "yuketam <yuketam@gmail.com>",
+  "bin": {
+    "tokyoartbeat-today-list": "./bin/cli.js",
+    "tablist": "./bin/cli.js",
+    "tab-list": "./bin/cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/yuketam/tokyoartbeat-today-list/issues"
+  },
+  "dependencies": {
+    "axios": "^0.14.0",
+    "request": "^2.74.0",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {},
+  "files": [
+    "package.json",
+    "README.md",
+    "index.js",
+    "src",
+    "bin"
+  ],
+  "homepage": "https://github.com/yuketam/tokyoartbeat-today-list",
+  "keywords": [
+    "dependencies",
+    "npm"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuketam/tokyoartbeat-today-list.git"
+  },
+  "scripts": {
+    "test": "echo 'TBD'",
+    "starttest": "nodebrew use 6.5.0 && npm i && node ./test.js"
+  }
+}
