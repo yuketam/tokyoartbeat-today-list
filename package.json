@@ -16,7 +16,13 @@
     "request": "^2.74.0",
     "xml2js": "^0.4.17"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-0": "^6.5.0"
+  },
   "files": [
     "package.json",
     "README.md",
@@ -37,6 +43,7 @@
   },
   "scripts": {
     "test": "echo 'TBD'",
-    "starttest": "nodebrew use 6.5.0 && npm i && node ./test.js"
+    "build": "nodebrew use 4.5.0 && babel src --out-dir lib",
+    "starttest": "nodebrew use 4.5.0 && npm i && npm run build && node lib/test.js"
   }
 }
