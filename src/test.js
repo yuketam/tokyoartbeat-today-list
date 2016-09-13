@@ -1,15 +1,5 @@
-import {parseString} from 'xml2js';
-import request from 'request';
-import fs from 'fs';
-import path from 'path';
-import axios from 'axios';
+import * as fetcher from './fetcher';
 
-const target = path.join(__dirname, '../test.xml');
-fs.readFile(target, (err, data) => {
-    if (err) {
-        throw err;
-    }
-    parseString(data, function (err, result) {
-        console.log(result);
-    });
-});
+fetcher.getListByRegion('EbisuDaikanyama', function(err, res) {
+  console.log(err, res);
+})

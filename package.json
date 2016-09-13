@@ -43,7 +43,7 @@
   },
   "scripts": {
     "test": "echo 'TBD'",
-    "build": "nodebrew use 4.5.0 && babel src --out-dir lib",
+    "build": "babel src --out-dir lib",
     "starttest": "nodebrew use 4.5.0 && npm i && npm run build && node lib/test.js"
   }
 }
