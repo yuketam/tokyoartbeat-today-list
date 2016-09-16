@@ -3,14 +3,21 @@ import axios from 'axios';
 
 // add local cache
 
-export function getListByRegion(region, callback) {
+export function getListByRegion(region) {
   const url = `http://www.tokyoartbeat.com/events/xml.php?lang=ja&contentType=${region}`;
   return axios
     .get(url)
-    .then(function(response) {
-      parseString(response.data, callback);
+    .then((response) => {
+      return new Promise((resolve, reject) => {
+        parseString(response.data, (err, res) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(res);
+        });
+      });
     })
-    .catch(function(err) {
+    .catch((err) => {
       callback(err);
     });
 }
