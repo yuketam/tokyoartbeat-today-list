@@ -7,17 +7,14 @@ export function getListByRegion(region) {
   const url = `http://www.tokyoartbeat.com/events/xml.php?lang=ja&contentType=${region}`;
   return axios
     .get(url)
-    .then((response) => {
+    .then(response => {
       return new Promise((resolve, reject) => {
         parseString(response.data, (err, res) => {
-          if (err) {
-            reject(err);
-          }
-          resolve(res);
+          err ? reject(err) : resolve(res);
         });
       });
     })
-    .catch((err) => {
+    .catch(err => {
       callback(err);
     });
 }
