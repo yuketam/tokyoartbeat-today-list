@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.14.0",
+    "lodash": "^4.16.0",
     "request": "^2.74.0",
     "xml2js": "^0.4.17"
   },
@@ -44,6 +45,7 @@
   "scripts": {
     "test": "echo 'TBD'",
     "build": "babel src --out-dir lib",
-    "starttest": "nodebrew use 4.5.0 && npm i && npm run build && node lib/test.js"
+    "starttest": "nodebrew use 4.5.0 && npm i && npm run easytest",
+    "easytest": "npm run build && node lib/test.js"
   }
 }
