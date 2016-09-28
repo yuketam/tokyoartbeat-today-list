@@ -7,6 +7,18 @@ const config = {
     '東京都写真美術館',
     'WAITINGROOM',
     '青山｜目黒'
+  ],
+  GinzaMarunouchi: [
+    'メゾンエルメス',
+    '東京ステーションギャラリー',
+    'Akio Nagasawa Gallery'
+  ],
+  UenoYanaka: [
+  　'スカイザバスハウス',
+  　'東京藝術大学',
+  　'東京国立博物館',
+  　'HAGISO',
+  　'ヒグレ17-15キャス'
   ]
 };
 
@@ -15,7 +27,10 @@ const analyzer = (area, data) => {
   data.Events.Event.forEach(function(item, i) {
 
     let name = item.Venue[0].Name[0];
-    let hasTarget = config[area].indexOf(name) > -1;
+    let hasTarget = config[area].filter((place) => {
+      return name.indexOf(place) > -1;
+    }).length;
+
     if (hasTarget) {
       j++;
       console.log("@", _.get(item, 'Venue.0.Name.0'));
@@ -32,11 +47,13 @@ const analyzer = (area, data) => {
 };
 
 for (var area in config) {
-  fetcher.getListByRegion(area)
-    .then((res) => {
-       analyzer(area, res);
-    })
-    .catch((err) => {
-      console.log('error!', area, err);
-    });
+  (function(area) {
+    fetcher.getListByRegion(area)
+      .then((res) => {
+         analyzer(area, res);
+      })
+      .catch((err) => {
+        console.log('error!', area, err);
+      });
+  })(area);
 }
