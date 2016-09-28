@@ -31,12 +31,12 @@ const analyzer = (area, data) => {
   });
 };
 
-const area = 'EbisuDaikanyama';
-fetcher.getListByRegion(area)
-  .then((res) => {
-    console.log('promise',res);
-     analyzer(area, res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+for (var area in config) {
+  fetcher.getListByRegion(area)
+    .then((res) => {
+       analyzer(area, res);
+    })
+    .catch((err) => {
+      console.log('error!', area, err);
+    });
+}
