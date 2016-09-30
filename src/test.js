@@ -1,33 +1,84 @@
 import _ from 'lodash';
 import * as fetcher from './fetcher';
 
-const config = {
-  EbisuDaikanyama: [
-    'LOKO GALLERY',
-    '東京都写真美術館',
-    'WAITINGROOM',
-    '青山｜目黒'
-  ],
-  GinzaMarunouchi: [
-    'メゾンエルメス',
-    '東京ステーションギャラリー',
-    'Akio Nagasawa Gallery'
-  ],
-  UenoYanaka: [
-  　'スカイザバスハウス',
-  　'東京藝術大学',
-  　'東京国立博物館',
-  　'HAGISO',
-  　'ヒグレ17-15キャス'
-  ]
-};
+const config = [
+  {
+    area: 'EbisuDaikanyama',
+    places: [
+      'LOKO GALLERY',
+      '東京都写真美術館',
+      'WAITINGROOM',
+      '青山｜目黒'
+    ]
+  },
+  {
+    area: 'GinzaMarunouchi',
+    places: [
+      'メゾンエルメス',
+      '東京ステーションギャラリー',
+      'Akio Nagasawa Gallery'
+    ]
+  },
+  {
+    area: 'UenoYanaka',
+    places: [
+    　'スカイザバスハウス',
+    　'東京藝術大学',
+    　'東京国立博物館',
+    　'HAGISO',
+    　'ヒグレ17-15キャス'
+    ]
+  },
+  {
+    area: 'KyobashiNihonbashi',
+    places: [
 
-const analyzer = (area, data) => {
+    ]
+  },
+  {
+    area: 'OmotesandoAoyama',
+    places: [
+
+    ]
+  },
+  {
+    area: 'Shinjuku',
+    places: [
+
+    ]
+  },
+  {
+    area: 'Shibuya',
+    places: [
+
+    ]
+  },
+  {
+    area: 'RoppongiNogizaka',
+    places: [
+
+    ]
+  },
+  {
+    area: 'KiyosumiRyogoku',
+    places: [
+
+    ]
+  },
+  {
+    area: 'ShirokaneHiroo',
+    places: [
+
+    ]
+  }
+];
+
+const analyzer = (area, places, data) => {
   let j = 0;
   data.Events.Event.forEach(function(item, i) {
 
     let name = item.Venue[0].Name[0];
-    let hasTarget = config[area].filter((place) => {
+    let hasTarget = places.filter((place) => {
       return name.indexOf(place) > -1;
     }).length;
 
@@ -46,14 +97,16 @@ const analyzer = (area, data) => {
   });
 };
 
-for (var area in config) {
+config.forEach(area => {
   (function(area) {
-    fetcher.getListByRegion(area)
+    let areaName = area.area;
+    let areaPlaces = area.places;
+    fetcher.getListByRegion(areaName)
       .then((res) => {
-         analyzer(area, res);
+         analyzer(areaName, areaPlaces, res);
       })
       .catch((err) => {
-        console.log('error!', area, err);
+        console.log('error!', areaName, err);
       });
   })(area);
-}
+});
