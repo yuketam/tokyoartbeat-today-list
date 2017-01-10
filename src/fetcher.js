@@ -18,8 +18,21 @@ export function getListByRegion(region) {
   const url = `http://www.tokyoartbeat.com/events/xml.php?lang=ja&contentType=${region}`;
   return axios
     .get(url)
-    .then(response => promisedParseString(response))
-    .catch(err => {
-      callback(err);
+    .then(response => promisedParseString(response));
+  }
+
+export function getPlaceListByRegion(region) {
+  const url = `http://www.tokyoartbeat.com/api/venues.php?lang=ja&area=${region}`;
+  return axios
+    .get(url)
+    .then(res => {
+      return new Promise((resolve, reject) => {
+        var data = res.data;
+        if (data) {
+          resolve(data);
+        } else {
+          reject({status: 500});
+        }
+      });
     });
 }
