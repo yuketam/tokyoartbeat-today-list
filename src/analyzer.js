@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import chalk from 'chalk';
 
 const analyzer = (area, places, data) => {
   let j = 0;
@@ -10,23 +11,20 @@ const analyzer = (area, places, data) => {
 
     if (hasTarget) {
       let place = _.get(item, 'Venue.0.Name.0');
-      let name = _.get(item、'Name.0');
-      let openingParty = _.get(item, 'Party.0');
+      let name = _.get(item, 'Name.0');
+      let openingParty = JSON.stringify(_.get(item, 'Party.0') || {});
       let startDate = _.get(item, 'DateStart.0');
       let endDate = _.get(item, 'DateEnd.0');
-      let scheduleNotes = _.get(item, 'ScheduleNote.0');
+      let scheduleNotes = _.get(item, 'ScheduleNote.0') || 'undefined';
 
       j++;
 
-      [
-        ['@', place],
-        [name],
-        ['opening party:', openingParty],
-        ['from', startDate, 'to', endDate, 'notes', scheduleNotes],
-        ['     ']
-      ].forEach(function(line) {
-        console.log.apply(console, line);
-      });
+      console.log(chalk.bold('@', place));
+      console.log(chalk.bold.underline(name));
+      console.log(chalk.italic('from', startDate, 'to', endDate));
+      console.log(chalk.dim('opening party:', openingParty));
+      console.log(chalk.dim('notes', scheduleNotes));
+      console.log(chalk.dim('     '));
     }
   });
 };
