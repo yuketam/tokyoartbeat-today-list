@@ -1,101 +1,12 @@
-import _ from 'lodash';
 import * as fetcher from './fetcher';
+import config from './config';
+import analyzer from './analyzer';
 
-const config = [
-  {
-    area: 'EbisuDaikanyama',
-    places: [
-      'LOKO GALLERY',
-      '東京都写真美術館',
-      'WAITINGROOM',
-      '青山｜目黒'
-    ]
-  },
-  {
-    area: 'GinzaMarunouchi',
-    places: [
-      'メゾンエルメス',
-      '東京ステーションギャラリー',
-      'Akio Nagasawa Gallery'
-    ]
-  },
-  {
-    area: 'UenoYanaka',
-    places: [
-    　'スカイザバスハウス',
-    　'東京藝術大学',
-    　'東京国立博物館',
-    　'HAGISO',
-    　'ヒグレ17-15キャス'
-    ]
-  },
-  {
-    area: 'KyobashiNihonbashi',
-    places: [
 
-    ]
-  },
-  {
-    area: 'OmotesandoAoyama',
-    places: [
 
-    ]
-  },
-  {
-    area: 'Shinjuku',
-    places: [
+// クライアントからgoogle calendar apiをたたけば自動で予定をカレンダーに登録できる
+// ex https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E9%A3%AF%E6%B2%BC%E8%8B%B1%E6%A8%B9%E3%80%8C%E3%82%A2%E3%83%9E%E3%82%BE%E3%83%B3%20%E3%83%8A%E3%82%A4%E3%83%AB%20%E3%82%BF%E3%82%AF%E3%83%A9%E3%83%9E%E3%82%AB%E3%83%B3%E3%80%8D&location=SNOW%20Contemporary&dates=20170311/20170415&sf=true&output=xml#eventpage_6
 
-    ]
-  },
-  {
-    area: 'Shibuya',
-    places: [
-
-    ]
-  },
-  {
-    area: 'RoppongiNogizaka',
-    places: [
-
-    ]
-  },
-  {
-    area: 'KiyosumiRyogoku',
-    places: [
-
-    ]
-  },
-  {
-    area: 'ShirokaneHiroo',
-    places: [
-
-    ]
-  }
-];
-
-const analyzer = (area, places, data) => {
-  let j = 0;
-  data.Events.Event.forEach(function(item, i) {
-
-    let name = item.Venue[0].Name[0];
-    let hasTarget = places.filter((place) => {
-      return name.indexOf(place) > -1;
-    }).length;
-
-    if (hasTarget) {
-      j++;
-      console.log("@", _.get(item, 'Venue.0.Name.0'));
-      console.log(item.Name[0]);
-      console.log("opening party:", _.get(item, 'Party.0'));
-      console.log("from", _.get(item, 'DateStart.0'), 'to', _.get(item, 'DateEnd.0'), 'notes', _.get(item, 'ScheduleNote.0'));
-      console.log("     ");
-
-      // if (j === 1) {
-      //   console.log(JSON.stringify(item))
-      // }
-    }
-  });
-};
 
 config.forEach(area => {
   (function(area) {

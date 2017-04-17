@@ -2,7 +2,7 @@ import _ from 'lodash';
 import axios from 'axios';
 import * as fetcher from './fetcher';
 
-const area = 'KiyosumiRyogoku';
+const area = 'Kantoothers';
 
 const getAreaName = (item) => {
   return _.get(item, 'fullname_ja');
