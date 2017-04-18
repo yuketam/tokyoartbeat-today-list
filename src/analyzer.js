@@ -16,6 +16,14 @@ const analyzer = (area, places, data) => {
       let startDate = _.get(item, 'DateStart.0');
       let endDate = _.get(item, 'DateEnd.0');
       let scheduleNotes = _.get(item, 'ScheduleNote.0') || 'undefined';
+      let calendarUrl = (function() {
+        let _name = encodeURIComponent(name);
+        let _place = encodeURIComponent('@' + place);
+        let _startDate = startDate.replace(/-/g, '');
+        let _endDate = endDate.replace(/-/g, '');
+        return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${_name}${_place}&location=${_place}&dates=${_startDate}/${_endDate}&sf=true`;
+      })();
+
 
       j++;
 
@@ -24,6 +32,7 @@ const analyzer = (area, places, data) => {
       console.log(chalk.italic('from', startDate, 'to', endDate));
       console.log(chalk.dim('opening party:', openingParty));
       console.log(chalk.dim('notes', scheduleNotes));
+      console.log(chalk.dim('cal url', calendarUrl));
       console.log(chalk.dim('     '));
     }
   });
