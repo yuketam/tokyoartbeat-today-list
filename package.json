@@ -12,6 +12,7 @@
     "url": "https://github.com/yuketam/tokyoartbeat-today-list/issues"
   },
   "dependencies": {
+    "angular": "^1.6.4",
     "axios": "^0.14.0",
     "chalk": "^1.1.3",
     "lodash": "^4.16.0",
@@ -20,11 +21,16 @@
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
-    "babel-cli": "^6.14.0",
     "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.4.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.14.0",
-    "babel-preset-stage-0": "^6.5.0"
+    "babel-preset-stage-0": "^6.5.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "require-dir": "^0.3.1",
+    "webpack": "^2.4.1",
+    "webpack-stream": "^3.2.0"
   },
   "files": [
     "package.json",
@@ -45,11 +51,11 @@
     "url": "https://github.com/yuketam/tokyoartbeat-today-list.git"
   },
   "scripts": {
-    "start": "npm run easytest",
+    "start": "npm run cli",
     "test": "echo 'TBD'",
-    "build": "babel src --out-dir lib",
-    "starttest": "nodebrew use 6.9.0 && npm i && npm run easytest",
-    "easytest": "npm run build && node lib/test.js",
-    "placestest": "npm run build && node lib/places_test.js"
+    "_build:cli": "babel src --out-dir lib",
+    "build:cli": "gulp webpack",
+    "build:client": "echo 'wait'",
+    "cli": "npm run build:cli && node lib/test.js"
   }
 }
