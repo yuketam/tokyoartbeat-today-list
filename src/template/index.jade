@@ -1,0 +1,9 @@
+extends layout
+body#body
+  div jade-parser #{timestamp}
+  div(ng-controller='indexController as ctrl', ng-init='ctrl.init()')
+    div {{appname}}
+      span(ng-click='ctrl.showSetting()')  setting
+    div(tab-test-directive='')
+    div(tab-result-test='', area='ctrl.data', bdd='1234')
+  script(src='client.bundle.js')

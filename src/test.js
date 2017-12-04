@@ -1,6 +1,6 @@
-import * as fetcher from 'libs/fetcher';
-import config from 'config';
-import analyzer from 'libs/analyzer';
+import * as fetcher from 'lib/fetcher';
+import config from 'lib/config';
+import analyzer from 'lib/analyzer';
 
 
 

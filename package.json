@@ -12,13 +12,18 @@
     "url": "https://github.com/yuketam/tokyoartbeat-today-list/issues"
   },
   "dependencies": {
+    "@angular/core": "^4.1.2",
     "angular": "^1.6.4",
     "axios": "^0.14.0",
     "chalk": "^1.1.3",
+    "express": "^4.15.2",
+    "jade": "^1.11.0",
     "lodash": "^4.16.0",
     "optionator": "^0.8.2",
     "request": "^2.74.0",
-    "xml2js": "^0.4.17"
+    "rxjs": "^5.4.0",
+    "xml2js": "^0.4.17",
+    "zone.js": "^0.8.10"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
@@ -51,11 +56,15 @@
     "url": "https://github.com/yuketam/tokyoartbeat-today-list.git"
   },
   "scripts": {
-    "start": "npm run cli",
+    "start": "npm run start:cli",
+    "start:client": "npm run build:server && npm run build:lib && npm run build:client && npm run run:client",
+    "start:cli": "npm run build:cli && npm run build:lib && npm run run:cli",
     "test": "echo 'TBD'",
-    "_build:cli": "babel src --out-dir lib",
-    "build:cli": "gulp webpack",
-    "build:client": "echo 'wait'",
-    "cli": "npm run build:cli && node lib/test.js"
+    "build:cli": "babel src/test.js --out-dir dist",
+    "build:client": "gulp webpack",
+    "build:server": "babel src/server --out-dir dist/server",
+    "build:lib": "babel src/lib --out-dir dist/lib",
+    "run:client": "NODE_PATH=./dist node dist/server/server",
+    "run:cli": "NODE_PATH=./dist node dist/src/test.js"
   }
 }

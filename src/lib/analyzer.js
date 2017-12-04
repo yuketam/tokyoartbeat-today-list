@@ -3,6 +3,7 @@ import chalk from 'chalk';
 
 const analyzer = (area, places, data) => {
   let j = 0;
+  let results = [];
   (_.get(data, 'Events.Event') || []).forEach(function(item, i) {
     let name = item.Venue[0].Name[0];
     let hasTarget = places.filter((place) => {
@@ -34,8 +35,21 @@ const analyzer = (area, places, data) => {
       console.log(chalk.dim('notes', scheduleNotes));
       console.log(chalk.dim('cal url', calendarUrl));
       console.log(chalk.dim('     '));
+
+      results.push({
+        area,
+        place,
+        name,
+        startDate,
+        endDate,
+        openingParty,
+        scheduleNotes,
+        calendarUrl
+      });
     }
   });
+
+  return results;
 };
 
 export default analyzer;

@@ -10,7 +10,7 @@ const config = {
   path: {
     js: {
       src: resolvePath('src'),
-      dist: resolvePath('lib')
+      dist: resolvePath('dist/public')
     }
   },
   eslint: {
