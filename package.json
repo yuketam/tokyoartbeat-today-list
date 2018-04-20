@@ -1,7 +1,7 @@
 {
   "name": "tokyoartbeat-today-list",
   "description": "Shows the list events/exhibitions opening today in tokyo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "yuketam <yuketam@gmail.com>",
   "bin": {
     "tokyoartbeat-today-list": "./bin/cli.js",
@@ -45,11 +45,10 @@
     "url": "https://github.com/yuketam/tokyoartbeat-today-list.git"
   },
   "scripts": {
-    "start": "npm run easytest",
+    "start": "npm run check",
     "test": "echo 'TBD'",
     "build": "babel src --out-dir lib",
-    "starttest": "nodebrew use 6.9.0 && npm i && npm run easytest",
-    "easytest": "npm run build && node lib/test.js",
-    "placestest": "npm run build && node lib/places_test.js"
+    "check": "npm run build && node lib/main.js",
+    "place:scan": "npm run build && node lib/places_test.js"
   }
 }

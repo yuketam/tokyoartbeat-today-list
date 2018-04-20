@@ -4,12 +4,16 @@ const config = [
     places: [
       'LOKO GALLERY',
       '東京都写真美術館',
+      '目黒区美術館',
       'WAITINGROOM',
       '青山｜目黒',
       'アートフロントギャラリー',
       'MA2 Gallery',
       '代官山 蔦屋書店',
-      'ナディッフ アパート'
+      'ナディッフ アパート',
+      'AIT ルーム',
+      'G/P gallery',
+      '代官山ヒルサイドフォーラム'
     ]
   },
   {
@@ -80,7 +84,8 @@ const config = [
       'VACANT',
       'ヴォイドプラス',
       'アニエスベー 青山店',
-      'オン・サンデーズ'
+      'オン・サンデーズ',
+      'BLOCK HOUSE'
     ]
   },
   {
@@ -91,7 +96,11 @@ const config = [
       '新宿眼科画廊',
       'ユミコチバアソシエイツ',
       'HAGIWARA PROJECTS',
-      'ケンジタキギャラリー'
+      'ケンジタキギャラリー',
+      'HAGIWARA PROJECTS',
+      'P3 art and environment',
+      'ユミコチバアソシエイツ viewing room shinjuku',
+      '東京オペラシティ アートギャラリー'
     ]
   },
   {
@@ -109,7 +118,10 @@ const config = [
       'アップリンク',
       '日本民芸館',
       'ユーロスペース',
-      'こまばアゴラ劇場'
+      'こまばアゴラ劇場',
+      '渋谷区文化総合センター大和田',
+      '渋谷ヒカリエ',
+      'アップリンク・ファクトリー'
     ]
   },
   {
@@ -148,7 +160,9 @@ const config = [
       'アルマスGALLERY',
       'ミヤケファインアート',
       '無人島プロダクション',
+      'ギャラリーモモ 両国',
       'Satoko Oe Contemporary',
+      'SNAC / 無人島プロダクション',
       '東京都現代美術館'
     ]
   },
@@ -158,10 +172,12 @@ const config = [
       'チェコセンター東京',
       'Kaikai Kiki',
       '児玉画廊',
+      '児玉画廊｜白金',
       'MISA SHIN',
       'Takuro Someya',
       'YOKOI FINE ART',
-      '慶應義塾大学アート・スペース'
+      '慶應義塾大学アート・スペース',
+      'Kaikai Kiki Gallery'
     ]
   },
   {
@@ -182,7 +198,11 @@ const config = [
       '武蔵野美術大学',
       '多摩美術大学',
       '鑓水青年美術館',
-      'Hidari Zingaro'
+      'Hidari Zingaro',
+      'アートセンター・オンゴーイング',
+      '小金井アートスポット',
+      'switch point'
+      
     ]
   },
   {
@@ -193,6 +213,7 @@ const config = [
       'マキイマサル',
       'レントゲンヴェルケ',
       'taimatz',
+      'マキイマサルファインアーツ',
       'TARO NASU'
     ]
   },
@@ -200,6 +221,7 @@ const config = [
     area: 'Chiyoda',
     places: [
       '3331 Arts Chiyoda',
+      'バンビナート・ギャラリー',
       'イタリア文化会館',
       '路地と人',
       'AI KOWADA',
@@ -207,13 +229,17 @@ const config = [
       'バンビナート',
       '佐賀町アーカイブ',
       'トーキョーワンダーサイト',
-      'ベルギー大使館'
+      'トーキョーアーツアンドスペース本郷',
+      'TETOKA（テトカ）',
+      'ベルギー大使館',
+      'Open Letter'
     ]
   },
   {
     area: 'OdaibaKachidoki',
     places: [
-      'hiromiyoshii'
+      'hiromiyoshii',
+      'SHIBAURA HOUSE'
     ]
   },
   {
@@ -221,7 +247,10 @@ const config = [
     places: [
       'アンスティチュ・フランセ',
       'Maki Fine Arts',
-      'ミヅマ'
+      'ミヅマ',
+      'WAITINGROOM',
+      'タカシソメミヤギャラリー',
+      'la kagu'
     ]
   },
   {
@@ -231,6 +260,11 @@ const config = [
       'アート・＆・リバー・バンク',
       'D&DEPARTMENT PROJECT',
       'Gallery21yo-j',
+      '世田谷パブリックシアター',
+      '世田谷文化生活情報センター生活工房',
+      '土間の家（ナリワイギャラリー）',
+      'ティル・ナ・ノーグ ギャラリー',
+      'clinic',
       'ミウラ・アーツ',
       'ティル・ナ・ノーグ',
       '五島美術館',
