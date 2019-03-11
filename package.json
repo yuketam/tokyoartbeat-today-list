@@ -45,7 +45,7 @@
     "url": "https://github.com/yuketam/tokyoartbeat-today-list.git"
   },
   "scripts": {
-    "start": "npm run check",
+    "start": "npm run check > out.log",
     "test": "echo 'TBD'",
     "build": "babel src --out-dir lib",
     "check": "npm run build && node lib/main.js",
